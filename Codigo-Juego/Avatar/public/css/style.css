@@ -1,0 +1,157 @@
+/* Estilos generales y tipografía */
+body {
+    background-color: #333; /* Color de respaldo */
+    background-image: url('avatar_background.jpg'); /* Ruta de la imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+    background-position: center; /* Centra la imagen */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilos para los títulos y formato */
+h1 {
+    color: #333; /* Color del texto del h1 */
+    background-color: #fce4b3; /* Color de fondo para el h1 */
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #0e0909;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Contenedores y uso de Flexbox */
+#botones-regla-jugar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+#seleccionar-personaje,
+#selecionar-ataque,
+#mensajes,
+#reiniciar,
+#contenedor-reglas {
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo blanco con 90% de opacidad */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 650px;
+    margin-bottom: 20px;
+}
+
+#seleccionar-personaje {
+    display: flex; /* Uso de Flexbox para alinear elementos */
+    flex-direction: column;
+    align-items: center;
+}
+
+#selecionar-ataque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.tarjetas-personajes,
+.tarjetas-ataques {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea si no caben */
+    gap: 15px;
+}
+
+/* Estilos para los botones y elementos de juego */
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+#boton-personaje, #boton-reiniciar, #reglas, #volver-inicio {
+    background-color: #007bff; /* Color azul para botones de control */
+    color: white;
+}
+
+#boton-personaje:hover, #boton-reiniciar:hover, #reglas:hover, #volver-inicio:hover {
+    background-color: #0056b3;
+}
+
+#boton-punio {
+    background-color: #dc3545; /* Rojo para el Puño */
+    color: white;
+}
+
+#boton-patada {
+    background-color: #28a745; /* Verde para la Patada */
+    color: white;
+}
+
+#boton-barrida {
+    background-color: #ffc107; /* Amarillo para la Barrida */
+    color: #333;
+}
+
+#boton-punio:hover { background-color: #c82333; }
+#boton-patada:hover { background-color: #218838; }
+#boton-barrida:hover { background-color: #e0a800; }
+
+#mensajes {
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+/* Estilos responsive con Media Queries */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #seleccionar-personaje,
+    #selecionar-ataque,
+    #mensajes,
+    #reiniciar,
+    #contenedor-reglas {
+        padding: 15px;
+    }
+
+    .tarjetas-personajes,
+    .tarjetas-ataques {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

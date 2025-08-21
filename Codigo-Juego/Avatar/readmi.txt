@@ -1,0 +1,262 @@
+# 🎮 Avatar Battle Game - Proyecto en JavaScript
+
+Este es un proyecto simple realizado en HTML y JavaScript que simula una batalla entre personajes del universo de Avatar: La Leyenda de Aang. Se trata de un juego por rondas donde el jugador y la computadora eligen un ataque, y se enfrentan con una lógica parecida al clásico piedra, papel o tijera.
+
+Estoy en segundo año por terminar la tecnicatura en programación y este proyecto forma parte de mi práctica con el DOM, eventos, estructuras condicionales y lógica de juego.
+
+---
+
+## 🛠️ ¿Cómo funciona?
+
+El usuario selecciona un personaje y luego elige entre tres ataques posibles: **Puño**, **Patada** o **Barrida**. Cada personaje comienza con 3 vidas. El primero que pierda todas sus vidas, pierde el juego.
+
+---
+
+## 📌 Lógica de combate
+
+- **Puño** gana a **Barrida**
+- **Patada** gana a **Puño**
+- **Barrida** gana a **Patada**
+
+---
+
+## ⚙️ Explicación de funciones
+
+### `iniciarJuego()`
+Inicializa el juego cuando se carga la página. Agrega los listeners a los botones del HTML y prepara las variables que muestran las vidas.
+
+---
+
+### `seleccionarPersonajeJugador()`
+Lee qué personaje seleccionó el jugador mediante los inputs de tipo `radio` y lo muestra en pantalla. Luego llama a `seleccionarPersonajecomputadora()` para que el enemigo elija al azar.
+
+---
+
+### `seleccionarPersonajecomputadora()`
+Selecciona aleatoriamente un personaje para el enemigo y lo muestra en pantalla.
+
+---
+
+### `ataquePunio()`, `ataquePatada()`, `ataqueBarrida()`
+Cada una de estas funciones asigna el ataque seleccionado por el jugador y luego genera el ataque del enemigo. Finalmente, se ejecuta la función `combate()`.
+
+---
+
+### `ataqueAleatorioEnemigo()`
+Genera un número aleatorio entre 1 y 3 para determinar el ataque que usará la computadora: Puño, Patada o Barrida.
+
+---
+
+### `combate()`
+Compara el ataque del jugador con el del enemigo usando la lógica del juego. Si gana una ronda, le resta una vida al oponente correspondiente y actualiza el contador. También muestra el resultado de cada ronda y revisa si el juego ha terminado.
+
+---
+
+### `revisarFinDelJuego()`
+Verifica si alguno de los dos llegó a 0 vidas. Si es así, muestra un mensaje final y desactiva los botones de ataque para terminar el juego.
+
+---
+
+### `mostrarMensaje(mensaje)`
+Muestra en pantalla el mensaje de resultado por cada ronda.
+
+---
+
+### `mostrarMensajeFinal(mensaje)`
+Muestra un mensaje destacado cuando termina el juego (ganador o perdedor).
+
+---
+
+### `deshabilitarBotonesAtaque()`
+Desactiva los botones para evitar que se sigan haciendo ataques después de terminar el juego.
+
+---
+
+### `aleatorio(min, max)`
+Devuelve un número entero aleatorio entre `min` y `max`. Lo uso para seleccionar ataques y personajes enemigos al azar.
+
+---
+
+## 💡 Cosas que podría mejorar en versiones futuras
+
+- Agregar sonidos y animaciones.
+- Hacer que cada personaje tenga una habilidad distinta.
+- Contador de rondas o historial de combates.
+- Diseño más estilizado y responsive para mobile.
+
+---
+
+
+# 🎮 Avatar Battle Game - Proyecto con HTML, CSS y JavaScript
+
+Este proyecto fue desarrollado como parte de la cursada de la Tecnicatura en Programación (2º año, UTN San Rafael). Es un juego por rondas inspirado en el universo de *Avatar: La Leyenda de Aang*, en donde el usuario elige un personaje y se enfrenta a un enemigo controlado por la computadora.
+
+---
+
+## 🧠 Lógica del juego
+
+- **Puño** le gana a **Barrida**
+- **Patada** le gana a **Puño**
+- **Barrida** le gana a **Patada**
+- Si ambos jugadores eligen el mismo ataque, es **empate**.
+
+---
+
+## 📁 Estructura del proyecto
+
+```bash
+Avatar/
+├── public/
+│   ├── assets/
+│   ├── css/
+│   ├── js/
+│   └── avatar.html
+```
+
+> Algunos comandos útiles que usamos:
+- `mkdir` para crear carpetas
+- `touch` para crear archivos (en Windows se puede usar Notepad)
+- `ls` o `dir` para listar
+- `ctrl + k + c` para comentar código
+- `ctrl + k + u` para descomentar
+
+---
+
+## 🧱 HTML - Cómo se eligen los personajes
+
+Ejemplo para el personaje Zuko:
+
+```html
+<label for="Zuko">Zuko</label>
+<input type="radio" name="personaje" id="Zuko">
+```
+
+- `<label>` vincula el texto con el `input` correspondiente mediante `for`.
+- Esto permite que al hacer clic en el texto también se seleccione el personaje.
+
+---
+
+## 🌐 JavaScript - Explicación de funciones
+
+> 💡 Buenas prácticas: colocamos el `<script>` al final del `<body>` o usamos `window.addEventListener('load', iniciarJuego)` para evitar errores si el DOM aún no cargó.
+
+### 🔁 Variables Globales
+
+```js
+let ataqueJugador;
+let ataqueEnemigo;
+let vidasJugador = 3;
+let vidasEnemigo = 3;
+```
+
+Estas variables son accesibles desde cualquier parte del script y permiten mantener el estado del juego.
+
+---
+
+### `iniciarJuego()`
+
+Se ejecuta al cargar la página:
+
+- Asigna eventos a los botones.
+- Obtiene referencias a los elementos del DOM (`spanVidasJugador`, `spanVidasEnemigo`).
+- Prepara el juego para empezar.
+
+---
+
+### `seleccionarPersonajeJugador()`
+
+Lee qué personaje eligió el jugador y lo muestra. Luego llama a `seleccionarPersonajecomputadora()` para que el enemigo elija al azar.
+
+> ✔️ Siempre se trabaja con variables (por ejemplo: `let inputZuko = document.getElementById('Zuko')`) para seguir buenas prácticas.
+
+---
+
+### `seleccionarPersonajecomputadora()`
+
+Elige aleatoriamente un personaje enemigo usando:
+
+```js
+let personajeAleatorio = personajes[Math.floor(Math.random() * personajes.length)];
+```
+
+---
+
+### Funciones de ataque:  
+`ataquePunio()`, `ataquePatada()`, `ataqueBarrida()`
+
+Estas asignan el ataque del jugador, generan el ataque enemigo y llaman a `combate()`.
+
+---
+
+### `ataqueAleatorioEnemigo()`
+
+Usa la función `aleatorio(min, max)` para simular el ataque del enemigo con un número al azar.
+
+---
+
+### `combate()`
+
+Aplica la lógica del juego:
+
+- Si hay empate, muestra mensaje.
+- Si el jugador gana, se le resta una vida al enemigo.
+- Si pierde, se le resta al jugador.
+
+También actualiza las vidas en el DOM:
+
+```html
+<p>Tu personaje <span id="personaje-jugador"></span> tiene <span id="vidas-jugador">3</span> vidas</p>
+<p>El personaje <span id="personaje-enemigo"></span> de tu enemigo tiene <span id="vidas-enemigo">3</span> vidas</p>
+```
+
+---
+
+### `revisarFinDelJuego()`
+
+Verifica si alguno quedó con 0 vidas, muestra el mensaje final y desactiva los botones.
+
+---
+
+### `mostrarMensaje()` y `mostrarMensajeFinal()`
+
+Usan `.innerHTML` para escribir resultados en pantalla.  
+⚠️ `.innerHTML` reemplaza todo el contenido HTML del elemento objetivo.
+
+---
+
+### `deshabilitarBotonesAtaque()`
+
+Evita que el jugador pueda seguir atacando luego de que el juego termina.
+
+---
+
+## 🧪 Uso de consola
+
+Para probar funciones o consultar valores, se puede usar la consola del navegador:  
+Presionar `Ctrl + Shift + I` y luego acceder al DOM con:  
+```js
+document.getElementById('Aang')
+```
+
+---
+
+## 🧑‍💻 Autor
+
+Trabajo realizado por [Roberto], estudiante de la Tecnicatura Universitaria en Programación (UTN - FRSR), 2º año.
+
+Este proyecto me ayudó a repasar:
+
+- DOM y eventos en JS
+- Lógica condicional
+- Variables globales
+- Funciones
+- Buenas prácticas en programación
+
+
+
+function crearMensaje(){
+    let seccionMensajes = document.getElementById('mensajes')
+    let parrafo = document.createElement('p')
+    parrafo.innerHTML = `Seleccionaste: ${ataqueJugador} 🆚 Enemigo: ${ataqueEnemigo} ➤ ${resultado}`;
+    seccionMensajes.appendChild(parrafo)
+}
