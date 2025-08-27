@@ -1,7 +1,7 @@
 /* Estilos generales y tipografía */
 body {
     background-color: #333; /* Color de respaldo */
-    background-image: url('avatar_background.jpg'); /* Ruta de la imagen */
+    background-image: url('/public/imagenes/avatar_background.jpg'); /* Ruta de la imagen */
     background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
@@ -34,20 +34,113 @@ h2 {
 
 /* Contenedores y uso de Flexbox */
 #botones-regla-jugar {
-    display: flex;
-    justify-content: center;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
     gap: 15px;
     width: 100%;
     max-width: 500px;
     margin-bottom: 20px;
 }
-
-#seleccionar-personaje,
-#selecionar-ataque,
+#volver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 #mensajes,
 #reiniciar,
-#contenedor-reglas {
-    background-color: rgba(255, 255, 255, 0.6); /* Fondo blanco con 90% de opacidad */
+#contenedor-reglas
+{
+    background-color: rgba(255, 255, 255, 0.793); /* Fondo blanco con 90% de opacidad */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgb(0, 0, 0);
+    width: 90%;
+    max-width: 650px;
+    margin-bottom: 20px;
+    
+}
+
+#seleccionar-personaje,
+#selecionar-ataque
+ {
+    background-color: rgba(255, 255, 255, 0.308); /* Fondo blanco con 90% de opacidad */
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.tarjetas-personajes,
+.tarjetas-ataques {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea si no caben */
+    gap: 20px; /* Espacio entre las tarjetas */
+    width: 100%;
+}
+
+#seleccionar-personaje img {
+width: 150px; /* Ajusta este valor según el tamaño que quieras */
+height: 150px; /* Ajusta este valor para mantener la proporción o crear un efecto */
+object-fit: cover; /* Recorta la imagen para que se ajuste al tamaño sin deformarla */
+}
+
+.tarjetas-personajes label img {
+    /* Opcional: Define una transición suave para el efecto */
+    transition: transform 0.3s ease;
+   
+}
+
+.tarjetas-personajes label img:hover {
+    /* Aumenta el tamaño de la imagen un 10% */
+    transform: scale(1.1);
+    cursor: pointer;
+     box-shadow: 0 8px 16px rgb(0, 0, 0); /* Sombra oscura */
+    transition: box-shadow 0.3s ease; /* Suaviza la transición */
+}
+
+/* Estilos para los botones y elementos de juego */
+button {
+    padding: 12px 14px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: box-shadow 0.10s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.54);
+    
+}
+
+
+button:hover {
+    transform: translateY(-3px);
+    transition: transform 0.3s ease;
+}
+
+/* Estilos para los botones de control */
+#boton-personaje,
+#boton-reiniciar,
+#reglas{
+    background-color: #fce4b3;; /* Color azul para botones de control */
+    color: rgb(14, 14, 14);
+    
+}
+
+/* Estilos de la sección principal, donde se centra todo */
+#seleccionar-personaje{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Esta propiedad centra horizontalmente todos los elementos */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -55,70 +148,40 @@ h2 {
     max-width: 650px;
     margin-bottom: 20px;
 }
-
-#seleccionar-personaje {
-    display: flex; /* Uso de Flexbox para alinear elementos */
-    flex-direction: column;
-    align-items: center;
-}
-
-#selecionar-ataque {
+#reiniciar {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-.tarjetas-personajes,
-.tarjetas-ataques {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea si no caben */
-    gap: 15px;
-}
-
-/* Estilos para los botones y elementos de juego */
-button {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-    transform: translateY(-2px);
-}
-
-#boton-personaje, #boton-reiniciar, #reglas, #volver-inicio {
-    background-color: #007bff; /* Color azul para botones de control */
-    color: white;
-}
-
-#boton-personaje:hover, #boton-reiniciar:hover, #reglas:hover, #volver-inicio:hover {
-    background-color: #0056b3;
-}
+   
 
 #boton-punio {
-    background-color: #dc3545; /* Rojo para el Puño */
-    color: white;
+    background-color: #dc35468e; /* Rojo para el Puño */
+
 }
 
 #boton-patada {
-    background-color: #28a745; /* Verde para la Patada */
-    color: white;
+    background-color: #28a746ae; /* Verde para la Patada */
+    
 }
 
 #boton-barrida {
-    background-color: #ffc107; /* Amarillo para la Barrida */
-    color: #333;
+    background-color: #ffc10799; /* Amarillo para la Barrida */
+}
+.boton-ataque img {
+ width: 100px; /* Ajusta este valor según el tamaño que quieras */
+height: 100px; /* Ajusta este valor para mantener la proporción o crear un efecto */
+object-fit: cover; /* Recorta la imagen para que se ajuste al tamaño sin deformarla */
+
+}
+.boton-ataque img:hover {
+  transform: scale(1.6);
+   box-shadow: 0 8px 16px rgb(0, 0, 0); /* Sombra oscura */
+    transition: box-shadow 0.3s ease; /* Suaviza la transición */
 }
 
-#boton-punio:hover { background-color: #c82333; }
-#boton-patada:hover { background-color: #218838; }
-#boton-barrida:hover { background-color: #e0a800; }
 
 #mensajes {
     text-align: center;

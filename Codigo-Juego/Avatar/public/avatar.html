@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <title>LA LEYENDA DE AANG: AVATAR</title>
     <!-- Este script es para enlazar el archivo de javascript, colocarlo aca no es de buena practica pero lo hacemos XD -->
-    <script src="./js/avatar.js"></script>
+    <!-- <script src="./js/avatar.js"></script> -->
     <link rel="stylesheet" href="./css/style.css">
 </head> <!-- ← Este cierre es lo único que faltaba -->
 <body>
     <div id="botones-regla-jugar">
-
-        <div>
-            <button type="button" id="reglas">REGLAS DEL JUEGO</button>
-        </div>
+       
+        <button type="button" id="reglas">REGLAS DEL JUEGO</button>
 
        
     </div>
@@ -46,35 +44,43 @@
     <h1>AVATAR  🔥 💧 🌱 🌪️ </h1>  <!-- ESTO ES ESTATICO, NO CAMBIA, EL H1 UTLIZADO  -->
     <section id="seleccionar-personaje">
         <h2>Elige tu personaje</h2>
-        <label for="Zuko">Zuko</label>
-        <input type="radio" name="personaje" id="Zuko">
+        <div class="tarjetas-personajes">
+            <figcaption>
+            <label for="Zuko"><img src="/public/imagenes/zuko.png" alt="Zuko"></label>
+            <input type="radio" name="personaje" id="Zuko">
+            
 
-        <label for="Katara">Katara</label>
-        <input type="radio" name="personaje" id="Katara"> 
+            <label for="Katara"><img src="/public/imagenes/katara.png" alt=""></label>
+            <input type="radio" name="personaje" id="Katara"> 
 
-        <label for="Aang">Aang</label>
-        <input type="radio" name="personaje" id="Aang">
+            <label for="Aang"><img src="/public/imagenes/aang.png" alt=""></label>
+            <input type="radio" name="personaje" id="Aang">
 
-        <label for="Toph">Toph</label>
-        <input type="radio" name="personaje" id="Toph">
-    
-        <label for="Sokka">Sokka</label>
-        <input type="radio" name="personaje" id="Sokka">
-
-        <button id="boton-personaje">seleccionar</button>
+            <label for="Toph"><img src="/public/imagenes/toph.png" alt=""></label>
+            <input type="radio" name="personaje" id="Toph">
+        
+            <label for="Sokka"><img src="/public/imagenes/sokka.png" alt=""></label>
+            <input type="radio" name="personaje" id="Sokka">
+</figcaption>
+        </div>
+        
+        <button id="boton-personaje">SELECCIONAR</button>
     </section>
     
     <section id="selecionar-ataque">
-        <h2>Elije tu ataque</h2>
+        
+        <h2>Elije tu ataque</h2><br>
         <p>Tu personaje <span id="personaje-jugador"></span> tiene <span id="vidas-jugador">3</span> vidas</p>
         <p>El personaje <span id="personaje-enemigo"></span> de tu enemigo tiene <span id="vidas-enemigo">3</span> vidas</p>
-
+        <div class="tarjetas-ataques">
         <p>
-            <button id="boton-punio">Punio 👊 </button>
-            <button id="boton-patada">Patada 🦶</button>
-            <button id="boton-barrida">Barrida 🧹</button>
+            <button class="boton-ataque" id="boton-punio"> <img src="/public/imagenes/punio.png" alt="puño"> </button>
+            <button class="boton-ataque" id="boton-patada"><img src="/public/imagenes/patada.png" alt="patada"></button>
+            <button class="boton-ataque" id="boton-barrida"><img src="/public/imagenes/barrida.png" alt="barrida"></button>
             
         </p>
+        </div>
+        
     </section>
 
     <section id="mensajes">
@@ -84,5 +90,6 @@
     <section id="reiniciar">
         <button id="boton-reiniciar">Reiniciar</button>
     </section>
+    <script src="./js/avatar.js"></script>
 </body>
 </html>
