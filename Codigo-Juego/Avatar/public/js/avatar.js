@@ -7,75 +7,65 @@ let vidasJugador = 3;
 let vidasEnemigo = 3;
 
 // Elementos del DOM
-let sectionContenedorReglas;
-let sectionContenedorpersonaje;
-let sectionContenedorataque;
-let seccionMensajes;
-let botonesIniciales;
-let spanVidasJugador;
-let spanVidasEnemigo;
-let spanPersonajeJugador;
-let spanPersonajeEnemigo;
-let sectionReiniciar;
+const sectionContenedorReglas = document.getElementById("contenedor-reglas");
+const sectionContenedorpersonaje = document.getElementById("seleccionar-personaje");
+const sectionContenedorataque = document.getElementById("selecionar-ataque");
+const seccionMensajes= document.getElementById("mensajes");
+const botonesIniciales= document.getElementById("botones-regla-jugar");
+const spanVidasJugador = document.getElementById("vidas-jugador");
+const spanVidasEnemigo = document.getElementById("vidas-enemigo");
+const spanPersonajeJugador  = document.getElementById('personaje-jugador');
+const spanPersonajeEnemigo= document.getElementById('personaje-enemigo');
+const sectionReiniciar = document.getElementById("reiniciar");
 
 // Botones y controles
-let botonReglas;
-let botonPersonajeJugador;
-let botonReiniciar;
-let botonPunio;
-let botonPatada;
-let botonBarrida;
+const botonReglas = document.getElementById('reglas');
+const botonPersonajeJugador = document.getElementById("boton-personaje");
+const botonReiniciar = document.getElementById("boton-reiniciar");
+const botonVolverInicio=document.getElementById("volver-inicio");
+const botonPunio = document.getElementById('boton-punio');
+const botonPatada = document.getElementById('boton-patada');
+const botonBarrida = document.getElementById('boton-barrida');
 
 // Imágenes (aunque no se usan en el código JavaScript, es buena práctica mantenerlas globales si se van a usar)
-let imagenZuko= new Image();
-imagenZuko.src='imagenes/zuko.png';
-imagenZuko.alt="Imagen Zuko";
+// let imagenZuko= new Image();
+// imagenZuko.src='imagenes/zuko.png';
+// imagenZuko.alt="Imagen Zuko";
 
-let imagenKatara=new Image();
-imagenKatara.src='imagenes/katara.png';
-imagenKatara.alt='Imagen Katara';
+// let imagenKatara=new Image();
+// imagenKatara.src='imagenes/katara.png';
+// imagenKatara.alt='Imagen Katara';
 
-let imagenAang=new Image();
-imagenAang.src="imagenes/aang.png";
-imagenAang.alt="Imagen Aang";
+// let imagenAang=new Image();
+// imagenAang.src="imagenes/aang.png";
+// imagenAang.alt="Imagen Aang";
 
-let imagenToph=new Image();
-imagenToph.src="imagenes/toph.png";
-imagenToph.alt="Imagen Toph";
+// let imagenToph=new Image();
+// imagenToph.src="imagenes/toph.png";
+// imagenToph.alt="Imagen Toph";
 
-let imagenSokka=new Image();
-imagenSokka.src="imagenes/sokka.png"
-imagenSokka.alt="Imagen sokka";
+// let imagenSokka=new Image();
+// imagenSokka.src="imagenes/sokka.png"
+// imagenSokka.alt="Imagen sokka";
 
-let imagenPatada=new Image();
-imagenPatada.src="imagenes/patada.png";
-imagenPatada.alt="Imagen patada";
+// let imagenPatada=new Image();
+// imagenPatada.src="imagenes/patada.png";
+// imagenPatada.alt="Imagen patada";
 
 
-let imagenBarrida=new Image();
-imagenBarrida.src="imagenes/barrida.png";
-imagenBarrida.alt="Imagen barrida";
+// let imagenBarrida=new Image();
+// imagenBarrida.src="imagenes/barrida.png";
+// imagenBarrida.alt="Imagen barrida";
 
-let imagenPunio=new Image();
-imagenPunio.src="/imagenes/punio.png";
-imagenPunio.alt="Imagen punio";
+// let imagenPunio=new Image();
+// imagenPunio.src="/imagenes/punio.png";
+// imagenPunio.alt="Imagen punio";
 
 
 // --- FUNCIONES DEL JUEGO ---
 
 function iniciarJuego() {
-    // Asignar elementos del DOM a las variables globales
-    sectionContenedorReglas = document.getElementById("contenedor-reglas");
-    sectionContenedorpersonaje = document.getElementById("seleccionar-personaje");
-    sectionContenedorataque = document.getElementById("selecionar-ataque");
-    seccionMensajes = document.getElementById("mensajes");
-    sectionReiniciar = document.getElementById("reiniciar");
-    spanVidasJugador = document.getElementById("vidas-jugador");
-    spanVidasEnemigo = document.getElementById("vidas-enemigo");
-    botonesIniciales = document.getElementById("botones-regla-jugar");
-    spanPersonajeJugador = document.getElementById('personaje-jugador');
-    spanPersonajeEnemigo = document.getElementById('personaje-enemigo');
-
+    
     // Ocultar las secciones al inicio del juego
     sectionContenedorReglas.style.display="none";
     sectionContenedorpersonaje.style.display="block";
@@ -84,17 +74,14 @@ function iniciarJuego() {
     botonesIniciales.style.display="flex";
 
     // Asignar botones y agregar event listeners
-    botonPersonajeJugador = document.getElementById("boton-personaje");
     botonPersonajeJugador.addEventListener("click", seleccionarPersonajeJugador);
-    
-    botonReiniciar = document.getElementById("boton-reiniciar");
     botonReiniciar.addEventListener('click', reiniciarJuego);
 
-    botonPunio = document.getElementById('boton-punio');
+    // botonPunio = document.getElementById('boton-punio');
     botonPunio.addEventListener('click', ataquePunio);
-    botonPatada = document.getElementById('boton-patada');
+    // botonPatada = document.getElementById('boton-patada');
     botonPatada.addEventListener('click', ataquePatada);
-    botonBarrida = document.getElementById('boton-barrida');
+    // botonBarrida = document.getElementById('boton-barrida');
     botonBarrida.addEventListener('click', ataqueBarrida);
 
     // Iniciar el juego con las funciones iniciales
@@ -102,7 +89,7 @@ function iniciarJuego() {
 }
 
 function botonVerReglas(){
-    botonReglas=document.getElementById('reglas');
+    // botonReglas=document.getElementById('reglas');
     botonReglas.addEventListener('click',verReglas);
 }
 
@@ -113,7 +100,7 @@ function verReglas(){
 }
 
 function volverInicio(){
-    let botonVolverInicio=document.getElementById("volver-inicio");
+    // let botonVolverInicio=document.getElementById("volver-inicio");
     botonVolverInicio.addEventListener('click',iniciarJuego);
 }
 
