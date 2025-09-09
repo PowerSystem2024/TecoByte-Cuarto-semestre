@@ -1,0 +1,16 @@
+02:39:15 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+02:39:38 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+02:55:35 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+03:06:01 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+03:09:23 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+03:09:23 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+03:10:02 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+03:10:02 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+03:12:58 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+03:12:58 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+03:13:13 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+03:13:13 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+03:15:02 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+03:15:02 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+03:51:12 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+03:51:12 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
