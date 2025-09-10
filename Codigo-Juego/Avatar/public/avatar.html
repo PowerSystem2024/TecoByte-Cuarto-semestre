@@ -1,95 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>LA LEYENDA DE AANG: AVATAR</title>
     <!-- Este script es para enlazar el archivo de javascript, colocarlo aca no es de buena practica pero lo hacemos XD -->
     <!-- <script src="./js/avatar.js"></script> -->
-    <link rel="stylesheet" href="./css/style.css">
-</head> <!-- ← Este cierre es lo único que faltaba -->
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<!-- ← Este cierre es lo único que faltaba -->
+
 <body>
     <div id="botones-regla-jugar">
-       
         <button type="button" id="reglas">REGLAS DEL JUEGO</button>
-
-       
     </div>
 
     <!-- ---------- Reglas -------------------------------->
     <div id="contenedor-reglas">
-
         <section id="reglas-juego">
             <h2>Reglas del juego</h2>
             <p>1. Se debe elegir un personaje</p>
-            
-            <p>2. Tu y el enemigo comenzarán con 3 vidas. Gana el jugador que queda con almenos una vida </p>
-            
-            <p>3. Reglamento de golpes: </p>
-            
+
+            <p>
+                2. Tu y el enemigo comenzarán con 3 vidas. Gana el jugador que queda
+                con almenos una vida
+            </p>
+
+            <p>3. Reglamento de golpes:</p>
+
             <li>Puño le gana a Barrida</li>
             <li>Patada le gana a Puño</li>
             <li>Barrida le gana a Barrida</li>
         </section>
 
-
         <div id="volver">
-
-            <button type="button" id="volver-inicio"><p>VOLVER AL INICIO</p></button>
+            <button type="button" id="volver-inicio">
+                <p>VOLVER AL INICIO</p>
+            </button>
         </div>
-
     </div>
 
+    <div id="boton-juego">
+        <button type="button" id="botonJugar">JUGAR</button>
+    </div>
+    <div id="contenedor-juego">
+        <h1>AVATAR 🔥 💧 🌱 🌪️</h1>
+        <!-- ESTO ES ESTATICO, NO CAMBIA, EL H1 UTLIZADO  -->
+        <section id="seleccionar-personaje">
+            <h2>Elige tu personaje</h2>
+            <div class="tarjetas-personajes">
+                <figcaption>
+                    <label for="Zuko"><img src="/public/imagenes/zuko.png" alt="Zuko" /></label>
+                    <input type="radio" name="personaje" id="Zuko" />
 
+                    <label for="Katara"><img src="/public/imagenes/katara.png" alt="" /></label>
+                    <input type="radio" name="personaje" id="Katara" />
 
-    <h1>AVATAR  🔥 💧 🌱 🌪️ </h1>  <!-- ESTO ES ESTATICO, NO CAMBIA, EL H1 UTLIZADO  -->
-    <section id="seleccionar-personaje">
-        <h2>Elige tu personaje</h2>
-        <div class="tarjetas-personajes">
-            <figcaption>
-            <label for="Zuko"><img src="/public/imagenes/zuko.png" alt="Zuko"></label>
-            <input type="radio" name="personaje" id="Zuko">
-            
+                    <label for="Aang"><img src="/public/imagenes/aang.png" alt="" /></label>
+                    <input type="radio" name="personaje" id="Aang" />
 
-            <label for="Katara"><img src="/public/imagenes/katara.png" alt=""></label>
-            <input type="radio" name="personaje" id="Katara"> 
+                    <label for="Toph"><img src="/public/imagenes/toph.png" alt="" /></label>
+                    <input type="radio" name="personaje" id="Toph" />
 
-            <label for="Aang"><img src="/public/imagenes/aang.png" alt=""></label>
-            <input type="radio" name="personaje" id="Aang">
+                    <label for="Sokka"><img src="/public/imagenes/sokka.png" alt="" /></label>
+                    <input type="radio" name="personaje" id="Sokka" />
 
-            <label for="Toph"><img src="/public/imagenes/toph.png" alt=""></label>
-            <input type="radio" name="personaje" id="Toph">
-        
-            <label for="Sokka"><img src="/public/imagenes/sokka.png" alt=""></label>
-            <input type="radio" name="personaje" id="Sokka">
-</figcaption>
-        </div>
-        
-        <button id="boton-personaje">SELECCIONAR</button>
-    </section>
-    
+                    <label for="Goku"><img src="/public/imagenes/goku.png" alt="" /></label>
+                    <input type="radio" name="personaje" id="Goku" />
+                </figcaption>
+            </div>
+
+            <button id="boton-personaje">SELECCIONAR</button>
+        </section>
+    </div>
     <section id="selecionar-ataque">
-        
-        <h2>Elije tu ataque</h2><br>
-        <p>Tu personaje <span id="personaje-jugador"></span> tiene <span id="vidas-jugador">3</span> vidas</p>
-        <p>El personaje <span id="personaje-enemigo"></span> de tu enemigo tiene <span id="vidas-enemigo">3</span> vidas</p>
-        <div class="tarjetas-ataques">
+        <h2>Elije tu ataque</h2>
+        <br />
         <p>
-            <button class="boton-ataque" id="boton-punio"> <img src="/public/imagenes/punio.png" alt="puño"> </button>
-            <button class="boton-ataque" id="boton-patada"><img src="/public/imagenes/patada.png" alt="patada"></button>
-            <button class="boton-ataque" id="boton-barrida"><img src="/public/imagenes/barrida.png" alt="barrida"></button>
-            
+            Tu personaje <span id="personaje-jugador"></span> tiene
+            <span id="vidas-jugador">3</span> vidas
         </p>
+        <p>
+            El personaje <span id="personaje-enemigo"></span> de tu enemigo tiene
+            <span id="vidas-enemigo">3</span> vidas
+        </p>
+        <div class="tarjetas-ataques">
+            <p>
+                <button class="boton-ataque" id="boton-punio">
+                    <img src="/public/imagenes/punio.png" alt="puño" />
+                </button>
+                <button class="boton-ataque" id="boton-patada">
+                    <img src="/public/imagenes/patada.png" alt="patada" />
+                </button>
+                <button class="boton-ataque" id="boton-barrida">
+                    <img src="/public/imagenes/barrida.png" alt="barrida" />
+                </button>
+            </p>
         </div>
-        
     </section>
 
-    <section id="mensajes">
-       
-    </section>
+    <section id="mensajes"></section>
 
     <section id="reiniciar">
         <button id="boton-reiniciar">Reiniciar</button>
     </section>
     <script src="./js/avatar.js"></script>
 </body>
+
 </html>

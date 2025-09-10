@@ -33,7 +33,8 @@ h2 {
 }
 
 /* Contenedores y uso de Flexbox */
-#botones-regla-jugar {
+#botones-regla-jugar
+ {
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center; /* Centra el contenido verticalmente */
     gap: 15px;
@@ -41,6 +42,7 @@ h2 {
     max-width: 500px;
     margin-bottom: 20px;
 }
+
 #volver {
     display: flex;
     justify-content: center;
@@ -127,6 +129,7 @@ button:hover {
 /* Estilos para los botones de control */
 #boton-personaje,
 #boton-reiniciar,
+#botonJugar,
 #reglas{
     background-color: #fce4b3;; /* Color azul para botones de control */
     color: rgb(14, 14, 14);
@@ -198,7 +201,7 @@ object-fit: cover; /* Recorta la imagen para que se ajuste al tamaño sin deform
     h1 {
         font-size: 1.5em;
     }
-
+    #boton-Jugar
     #seleccionar-personaje,
     #selecionar-ataque,
     #mensajes,
