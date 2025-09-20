@@ -39,4 +39,4 @@ while opcion != 5:
     log.info(f'Usuario eliminado satisfactoriamente: {usuario_eliminado}')
 
 else:
-  log.info('Has de la aplicación, ¡Hasta luego!')
+  log.info('Has salido de la aplicación, ¡Hasta luego!')

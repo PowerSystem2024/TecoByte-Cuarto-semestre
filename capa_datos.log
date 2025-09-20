@@ -14,3 +14,18 @@
 03:15:02 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
 03:51:12 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
 03:51:12 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+08:53:31 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+08:54:25 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+08:54:25 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+08:54:58 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+08:55:53 PM:DEBUG [logger_base.py:14] Mensaje a nivel debug
+08:55:53 PM:INFO [logger_base.py:15] Mensaje a nivel info
+08:55:53 PM:WARNING [logger_base.py:16] Mensaje a nivel warning
+08:55:53 PM:ERROR [logger_base.py:17] Mensaje a nivel error
+08:55:53 PM:CRITICAL [logger_base.py:18] Mensaje a nivel critical
+08:56:07 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+08:56:40 PM:INFO [menu_app_usuario.py:42] Has de la aplicación, ¡Hasta luego!
+09:11:58 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+09:11:58 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+09:12:22 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+09:12:43 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
