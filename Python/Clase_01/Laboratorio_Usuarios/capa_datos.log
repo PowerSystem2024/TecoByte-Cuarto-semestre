@@ -1,2 +1,119 @@
 08:34:00 PM:DEBUG [conexion.py:39] Creación del pool exitosa: <psycopg2.pool.SimpleConnectionPool object at 0x0000013246A1F8C0>
 08:34:00 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x0000013246A8DAD0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+06:58:32 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+06:58:32 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+06:59:59 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+07:00:58 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+07:01:10 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+07:01:10 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: 'utf-8' codec can't decode byte 0xf3 in position 79: invalid continuation byte
+07:04:16 PM:ERROR [conexion.py:42] Ocurrió un error al obtener el pool: connection to server at "127.0.0.1", port 5432 failed: fe_sendauth: no password supplied
+
+07:19:39 PM:DEBUG [conexion.py:39] Creación del pool exitosa: <psycopg2.pool.SimpleConnectionPool object at 0x00000202A8AABF50>
+07:19:39 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x00000202AAA69AD0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:20:28 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+07:20:28 PM:DEBUG [conexion.py:39] Creación del pool exitosa: <psycopg2.pool.SimpleConnectionPool object at 0x00000236DBB3B4D0>
+07:20:28 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:20:28 PM:DEBUG [usuario_dao.py:15] Seleccionando usuarios
+07:20:28 PM:DEBUG [cursor_del_pool.py:17] Se ejecuta el método exit
+07:20:28 PM:DEBUG [cursor_del_pool.py:23] Commit de la transacción
+07:20:28 PM:DEBUG [conexion.py:50] Regresamos la conexión al pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:20:28 PM:INFO [menu_app_usuario.py:18] Usuario: 1 mgonzalez 456
+07:20:28 PM:INFO [menu_app_usuario.py:18] Usuario: 2 jgarcia 789
+07:20:35 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+07:20:35 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:20:35 PM:DEBUG [usuario_dao.py:15] Seleccionando usuarios
+07:20:35 PM:DEBUG [cursor_del_pool.py:17] Se ejecuta el método exit
+07:20:35 PM:DEBUG [cursor_del_pool.py:23] Commit de la transacción
+07:20:35 PM:DEBUG [conexion.py:50] Regresamos la conexión al pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:20:35 PM:INFO [menu_app_usuario.py:18] Usuario: 1 mgonzalez 456
+07:20:35 PM:INFO [menu_app_usuario.py:18] Usuario: 2 jgarcia 789
+07:20:43 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+07:20:43 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:20:43 PM:DEBUG [usuario_dao.py:27] Usuario a insertar: Usuario: None Pedro 123
+07:20:43 PM:DEBUG [cursor_del_pool.py:17] Se ejecuta el método exit
+07:20:43 PM:DEBUG [cursor_del_pool.py:23] Commit de la transacción
+07:20:43 PM:DEBUG [conexion.py:50] Regresamos la conexión al pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:20:43 PM:INFO [menu_app_usuario.py:25] Usuario insertado: 1
+07:20:45 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+07:20:45 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:20:45 PM:DEBUG [usuario_dao.py:15] Seleccionando usuarios
+07:20:45 PM:DEBUG [cursor_del_pool.py:17] Se ejecuta el método exit
+07:20:45 PM:DEBUG [cursor_del_pool.py:23] Commit de la transacción
+07:20:45 PM:DEBUG [conexion.py:50] Regresamos la conexión al pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:20:45 PM:INFO [menu_app_usuario.py:18] Usuario: 1 mgonzalez 456
+07:20:45 PM:INFO [menu_app_usuario.py:18] Usuario: 2 jgarcia 789
+07:20:45 PM:INFO [menu_app_usuario.py:18] Usuario: 3 Pedro 123
+07:21:36 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+07:21:36 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:21:36 PM:DEBUG [usuario_dao.py:35] Usuario a actualizar: Usuario: 1 mgonzalez 789
+07:21:36 PM:DEBUG [cursor_del_pool.py:17] Se ejecuta el método exit
+07:21:36 PM:DEBUG [cursor_del_pool.py:23] Commit de la transacción
+07:21:36 PM:DEBUG [conexion.py:50] Regresamos la conexión al pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:21:36 PM:INFO [menu_app_usuario.py:33] Usuario actualizado: 1
+07:21:39 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+07:21:39 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:21:39 PM:DEBUG [usuario_dao.py:15] Seleccionando usuarios
+07:21:39 PM:DEBUG [cursor_del_pool.py:17] Se ejecuta el método exit
+07:21:39 PM:DEBUG [cursor_del_pool.py:23] Commit de la transacción
+07:21:39 PM:DEBUG [conexion.py:50] Regresamos la conexión al pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:21:39 PM:INFO [menu_app_usuario.py:18] Usuario: 1 mgonzalez 789
+07:21:39 PM:INFO [menu_app_usuario.py:18] Usuario: 2 jgarcia 789
+07:21:39 PM:INFO [menu_app_usuario.py:18] Usuario: 3 Pedro 123
+07:21:58 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+07:21:58 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:21:58 PM:DEBUG [usuario_dao.py:35] Usuario a actualizar: Usuario: 1 AndresJuarez 4434
+07:21:58 PM:DEBUG [cursor_del_pool.py:17] Se ejecuta el método exit
+07:21:58 PM:DEBUG [cursor_del_pool.py:23] Commit de la transacción
+07:21:58 PM:DEBUG [conexion.py:50] Regresamos la conexión al pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:21:58 PM:INFO [menu_app_usuario.py:33] Usuario actualizado: 1
+07:22:00 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+07:22:00 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:22:00 PM:DEBUG [usuario_dao.py:15] Seleccionando usuarios
+07:22:00 PM:DEBUG [cursor_del_pool.py:17] Se ejecuta el método exit
+07:22:00 PM:DEBUG [cursor_del_pool.py:23] Commit de la transacción
+07:22:00 PM:DEBUG [conexion.py:50] Regresamos la conexión al pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:22:00 PM:INFO [menu_app_usuario.py:18] Usuario: 1 AndresJuarez 4434
+07:22:00 PM:INFO [menu_app_usuario.py:18] Usuario: 2 jgarcia 789
+07:22:00 PM:INFO [menu_app_usuario.py:18] Usuario: 3 Pedro 123
+07:22:15 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+07:22:15 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:22:15 PM:DEBUG [usuario_dao.py:43] Usuario a eliminar: Usuario: 3 None None
+07:22:15 PM:DEBUG [cursor_del_pool.py:17] Se ejecuta el método exit
+07:22:15 PM:DEBUG [cursor_del_pool.py:20] Ocurrió una excepción: 'int' object does not support indexing
+07:22:15 PM:DEBUG [conexion.py:50] Regresamos la conexión al pool: <connection object at 0x00000236DD749CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:23:23 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+07:23:23 PM:DEBUG [conexion.py:39] Creación del pool exitosa: <psycopg2.pool.SimpleConnectionPool object at 0x000002642E68B4D0>
+07:23:23 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x0000026430249CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:23:23 PM:DEBUG [usuario_dao.py:15] Seleccionando usuarios
+07:23:23 PM:DEBUG [cursor_del_pool.py:17] Se ejecuta el método exit
+07:23:23 PM:DEBUG [cursor_del_pool.py:23] Commit de la transacción
+07:23:23 PM:DEBUG [conexion.py:50] Regresamos la conexión al pool: <connection object at 0x0000026430249CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:23:23 PM:INFO [menu_app_usuario.py:18] Usuario: 1 AndresJuarez 4434
+07:23:23 PM:INFO [menu_app_usuario.py:18] Usuario: 2 jgarcia 789
+07:23:23 PM:INFO [menu_app_usuario.py:18] Usuario: 3 Pedro 123
+07:33:33 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+07:33:33 PM:DEBUG [conexion.py:39] Creación del pool exitosa: <psycopg2.pool.SimpleConnectionPool object at 0x00000197C232B4D0>
+07:33:33 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x00000197C3F21CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:33:33 PM:DEBUG [usuario_dao.py:15] Seleccionando usuarios
+07:33:33 PM:DEBUG [cursor_del_pool.py:17] Se ejecuta el método exit
+07:33:33 PM:DEBUG [cursor_del_pool.py:23] Commit de la transacción
+07:33:33 PM:DEBUG [conexion.py:50] Regresamos la conexión al pool: <connection object at 0x00000197C3F21CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:33:33 PM:INFO [menu_app_usuario.py:18] Usuario: 1 AndresJuarez 4434
+07:33:33 PM:INFO [menu_app_usuario.py:18] Usuario: 2 jgarcia 789
+07:33:33 PM:INFO [menu_app_usuario.py:18] Usuario: 3 Pedro 123
+07:33:55 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+07:33:55 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x00000197C3F21CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:33:55 PM:DEBUG [usuario_dao.py:43] Usuario a eliminar: Usuario: 3 None None
+07:33:55 PM:DEBUG [cursor_del_pool.py:17] Se ejecuta el método exit
+07:33:55 PM:DEBUG [cursor_del_pool.py:23] Commit de la transacción
+07:33:55 PM:DEBUG [conexion.py:50] Regresamos la conexión al pool: <connection object at 0x00000197C3F21CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:33:55 PM:INFO [menu_app_usuario.py:39] Usuario eliminado satisfactoriamente: 1
+07:34:03 PM:DEBUG [cursor_del_pool.py:11] Inicio del método with y __enter__
+07:34:03 PM:DEBUG [conexion.py:18] Conexión obtenida del pool: <connection object at 0x00000197C3F21CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:34:03 PM:DEBUG [usuario_dao.py:15] Seleccionando usuarios
+07:34:03 PM:DEBUG [cursor_del_pool.py:17] Se ejecuta el método exit
+07:34:03 PM:DEBUG [cursor_del_pool.py:23] Commit de la transacción
+07:34:03 PM:DEBUG [conexion.py:50] Regresamos la conexión al pool: <connection object at 0x00000197C3F21CF0; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+07:34:03 PM:INFO [menu_app_usuario.py:18] Usuario: 1 AndresJuarez 4434
+07:34:03 PM:INFO [menu_app_usuario.py:18] Usuario: 2 jgarcia 789
+07:34:40 PM:INFO [menu_app_usuario.py:42] Has salido de la aplicación, ¡Hasta luego!

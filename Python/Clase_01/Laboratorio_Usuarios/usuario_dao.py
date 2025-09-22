@@ -41,7 +41,7 @@ class Usuario_DAO:
   def eliminar(cls, usuario):
     with CursorDelPool() as cursor:
       log.debug(f'Usuario a eliminar: {usuario}')
-      valores = (usuario.id_usuario)
+      valores = (usuario.id_usuario,)
       cursor.execute(cls._ELIMINAR, valores)
       return cursor.rowcount
 
