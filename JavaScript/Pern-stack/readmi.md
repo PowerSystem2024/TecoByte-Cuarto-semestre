@@ -8,4 +8,4 @@ npm i nodemon eslint -D
 
 npm start
 
-ejecutar dev npm run dev 
+ejecutar dev---> npm run dev 
