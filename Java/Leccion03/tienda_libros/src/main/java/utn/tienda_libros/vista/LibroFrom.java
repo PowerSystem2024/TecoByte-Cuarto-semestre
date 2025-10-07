@@ -6,14 +6,14 @@ import utn.tienda_libros.servicio.LibroServicio;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.tools.Tool;
 import java.awt.*;
 
 @Component
 
 public class LibroFrom extends JFrame {
     LibroServicio libroServicio;
-    private Jpanel panel;
+    private JPanel panel;
+    private JTable tablaLibros;
     private DefaultTableModel tablaModeloLibros;
 
     @Autowired
@@ -24,7 +24,7 @@ public class LibroFrom extends JFrame {
 
     private void iniciarForma(){
         setContentPane(panel);
-        setDefaultCloseOperation(Jframe.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setSize(900, 700);
         //Para obtener las dimensiones de la ventana
@@ -35,7 +35,29 @@ public class LibroFrom extends JFrame {
         setLocation(x, y);
     }
     private void createUIComponents(){
-        // TODO: place custom component creation code here
-
+        this.tablaModeloLibros = new DefaultTableModel(0, 5);
+        String[] cabecera = {"Id", "Libro", "Autor", "Precio", "Existencias"};
+        this.tablaModeloLibros.setColumnIdentifiers(cabecera);
+        //Instanciar el objeto de JTable
+        this.tablaLibros = new JTable(tablaModeloLibros);
+        listarLibros();
+    }
+    private void listarLibros(){
+        //Limpiar la tabla
+        tablaModeloLibros.setRowCount(0);
+        //Obtener los libros de la BD
+        var libros = libroServicio.listarLibros();
+        //Iteramos cada libro
+        libros.forEach((libro) -> { //funcion lambda
+            //creamos cada registro para agregarlos a la tabla
+            Object [] renglonLibro = {
+                    libro.getIdLibro(),
+                    libro.getNombreLibro(),
+                    libro.getAutor(),
+                    libro.getPrecio(),
+                    libro.getExistencias()
+            };
+            this.tablaModeloLibros.addRow(renglonLibro);
+        });
     }
 }
