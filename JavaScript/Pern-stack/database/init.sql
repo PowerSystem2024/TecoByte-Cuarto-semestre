@@ -2,4 +2,13 @@ CREATE TABLE tareas (
     id SERIAL PRIMARY KEY,
     titulo VARCHAR(250) UNIQUE NOT NULL,
     descripcion TEXT
-)
+);
+
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(250) UNIQUE NOT NULL,
+    email VARCHAR(250) UNIQUE NOT NULL,
+    password VARCHAR(250) NOT NULL
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

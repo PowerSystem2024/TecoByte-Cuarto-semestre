@@ -51,7 +51,7 @@ export const actualizarTarea = async (req, res) => {
       message: "No existe una tarea con ese ID",
     });
   }
-
+ 
   return res.json(result.rows[0]);
 };
 
