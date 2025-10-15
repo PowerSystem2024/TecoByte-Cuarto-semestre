@@ -40,6 +40,46 @@ def mostrar_imagen_inicial(screen, imagen_path, duracion):
 
         clock.tick(60)  # Mantener 60 FPS
 
+def mostrar_menu_pausa(screen):
+    font = pygame.font.Font(None, 48)
+    opciones = ["Continuar", "Reiniciar", "Salir"]
+    seleccion = 0
+    clock = pygame.time.Clock()
+
+    while True:
+        screen.fill((0, 0, 0))
+        titulo = font.render("Juego en Pausa", True, (255, 255, 0))
+        screen.blit(titulo, (SCREEN_WIDTH // 2 - titulo.get_width() // 2, 150))
+
+        for i, texto in enumerate(opciones):
+            color = (255, 255, 255) if i == seleccion else (180, 180, 180)
+            opcion = font.render(texto, True, color)
+            screen.blit(opcion, (SCREEN_WIDTH // 2 - opcion.get_width() // 2, 250 + i * 60))
+
+        pygame.display.flip()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP:
+                    seleccion = (seleccion - 1) % len(opciones)
+                elif event.key == pygame.K_DOWN:
+                    seleccion = (seleccion + 1) % len(opciones)
+                elif event.key == pygame.K_RETURN:
+                    if opciones[seleccion] == "Continuar":
+                        return "continuar"
+                    elif opciones[seleccion] == "Reiniciar":
+                        return "reiniciar"
+                    elif opciones[seleccion] == "Salir":
+                        pygame.quit()
+                        sys.exit()
+
+        clock.tick(30)
+
+
 
 def main():
     pygame.init()
@@ -105,6 +145,16 @@ def main():
         if keys[pygame.K_SPACE]:
             personaje.lanzar_laser()
             sonido_laser.play()
+        
+        # Verificar tecla ESC para pausar
+        if keys[pygame.K_ESCAPE]:
+            opcion = mostrar_menu_pausa(screen)
+            if opcion == "reiniciar":
+                main()
+                return
+            elif opcion == "continuar":
+                pass  # simplemente sigue el juego
+
 
         # Actualizar posición de enemigos y manejar colisiones
         for enemigo in enemigos[:]:  # Iterar sobre una copia para eliminar de la lista original
@@ -136,7 +186,7 @@ def main():
         explosiones = [explosion for explosion in explosiones if explosion.actualizar()]
 
         # Cambiar el fondo cada 250 puntos
-        if puntos > 0 and puntos % 250 == 0:
+        if puntos > 0 and puntos % 150 == 0:
             if fondo_actual == fondo2:
                 fondo_actual = fondo3
             else:
@@ -158,7 +208,7 @@ def main():
         screen.blit(texto_puntos, (10, 50))
         screen.blit(texto_nivel, (10, 90))
 
-        if puntos >= 250:
+        if puntos >= 150:
             nivel += 1
             puntos = 0  # Resetea el puntaje al cambiar de nivel
 
@@ -183,35 +233,37 @@ def main():
     pos_x_mensaje = SCREEN_WIDTH // 2 - texto_mensaje.get_width() // 2
     pos_y_mensaje = SCREEN_HEIGHT // 2 + texto_game_over.get_height() // 2 + 20  # Ajusta el margen vertical
 
-    # Crear el botón de reinicio
-    texto_reinicio = font_small.render("Reiniciar", True, (255, 0, 0))  # Texto en rojo
-    boton_rect = pygame.Rect(SCREEN_WIDTH // 2 - texto_reinicio.get_width() // 2, SCREEN_HEIGHT // 2 + 100, texto_reinicio.get_width(), texto_reinicio.get_height())
+    # Crear botones de Reiniciar y Salir
+    texto_reinicio = font_small.render("Reiniciar", True, (255, 0, 0))
+    texto_salir = font_small.render("Salir", True, (255, 255, 255))
 
-    # Dibujar textos en la pantalla
+    boton_reinicio = pygame.Rect(SCREEN_WIDTH // 2 - 100, SCREEN_HEIGHT // 2 + 100, 200, 40)
+    boton_salir = pygame.Rect(SCREEN_WIDTH // 2 - 100, SCREEN_HEIGHT // 2 + 150, 200, 40)
+
+    # Dibujar pantalla final
     screen.blit(texto_game_over, (pos_x_game_over, pos_y_game_over))
     screen.blit(texto_mensaje, (pos_x_mensaje, pos_y_mensaje))
-    pygame.draw.rect(screen, (0, 0, 0), boton_rect)  # Dibujar el botón en negro
-    screen.blit(texto_reinicio, (boton_rect.x + (boton_rect.width // 2) - (texto_reinicio.get_width() // 2), boton_rect.y + (boton_rect.height // 2) - (texto_reinicio.get_height() // 2)))
-
-    # Actualizar la pantalla
+    pygame.draw.rect(screen, (50, 50, 50), boton_reinicio)
+    pygame.draw.rect(screen, (50, 50, 50), boton_salir)
+    screen.blit(texto_reinicio, (boton_reinicio.centerx - texto_reinicio.get_width() // 2, boton_reinicio.centery - texto_reinicio.get_height() // 2))
+    screen.blit(texto_salir, (boton_salir.centerx - texto_salir.get_width() // 2, boton_salir.centery - texto_salir.get_height() // 2))
     pygame.display.flip()
 
-    # Esperar 2 segundos antes de mostrar el botón de reiniciar
-    pygame.time.wait(2000)
-
-    # Bucle para esperar clic en el botón de reinicio
-    reiniciar = False
-    while not reiniciar:
+    # Esperar acción
+    while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-
-            # Verificar clic en el botón de reiniciar
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if event.button == 1 and boton_rect.collidepoint(event.pos):
-                    reiniciar = True  # El jugador hizo clic en "Reiniciar"
-                    main()  # Reiniciar el juego
+                if event.button == 1:
+                    if boton_reinicio.collidepoint(event.pos):
+                        main()
+                        return
+                    elif boton_salir.collidepoint(event.pos):
+                        pygame.quit()
+                        sys.exit()
+
 
         pygame.display.flip()
         pygame.time.Clock().tick(60)  # Mantener FPS constante
