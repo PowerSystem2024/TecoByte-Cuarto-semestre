@@ -1,8 +1,8 @@
 import os
 
 #Dimensión de la pantalla, el alto y ancho de la misma
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 1920
+SCREEN_HEIGHT = 1080
 
 #Especificamos los colores de la pantalla
 COLOR_LASER =(0, 0, 255) #Color Azul
