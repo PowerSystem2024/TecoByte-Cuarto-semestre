@@ -97,7 +97,7 @@ def main():
     pygame.display.set_icon(icon)
 
     # Inicializar los fondos
-    fondo2 = pygame.image.load(os.path.join(ASSETS_PATH, 'images', 'fondo2.jfif'))
+    fondo2 = pygame.image.load(os.path.join(ASSETS_PATH, 'images', 'fondo2.jpeg'))
     fondo2 = pygame.transform.scale(fondo2, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
     fondo3 = pygame.image.load(os.path.join(ASSETS_PATH, 'images', 'fondo3.jpg'))
@@ -119,8 +119,8 @@ def main():
     explosiones = []
     puntos = 0
     nivel = 1
-    # Movimiento de boton de flechas 
 
+    # Movimiento de boton de flechas 
     clock = pygame.time.Clock()
     running = True
     while running:
@@ -185,7 +185,7 @@ def main():
         # Actualizar explosiones
         explosiones = [explosion for explosion in explosiones if explosion.actualizar()]
 
-        # Cambiar el fondo cada 250 puntos
+        # Cambiar el fondo cada 150 puntos
         if puntos > 0 and puntos % 150 == 0:
             if fondo_actual == fondo2:
                 fondo_actual = fondo3
