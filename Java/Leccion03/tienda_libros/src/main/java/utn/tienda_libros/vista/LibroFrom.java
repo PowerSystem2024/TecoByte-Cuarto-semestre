@@ -22,6 +22,8 @@ public class LibroFrom extends JFrame {
     private JButton agregarButton;
     private JButton modificarButton;
     private JButton eliminarButton;
+    private JScrollPane scrollPane1;
+    private JLabel tiendaDeLibrosLabel;
     private DefaultTableModel tablaModeloLibros;
 
     @Autowired
@@ -34,15 +36,32 @@ public class LibroFrom extends JFrame {
     private void iniciarForma(){
         setContentPane(panel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
         setSize(900, 700);
-        //Para obtener las dimensiones de la ventana
+
+        // Inicializar el modelo de la tabla aquí
+        this.tablaModeloLibros = new DefaultTableModel();
+        String[] cabecera = {"Id", "Libro", "Autor", "Precio", "Existencias"};
+        this.tablaModeloLibros.setColumnIdentifiers(cabecera);
+        // Asegurarse de que la JTable existente use este modelo
+        if (this.tablaLibros == null) {
+            this.tablaLibros = new JTable(tablaModeloLibros);
+        } else {
+            this.tablaLibros.setModel(this.tablaModeloLibros);
+        }
+
+        // Cargar datos luego de inicializar el modelo
+        listarLibros();
+
+        // Centrar ventana (corregido)
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension tamanioPantalla = toolkit.getScreenSize();
-        int x = (tamanioPantalla.width - getWidth()/2);
-        int y = (tamanioPantalla.height - getHeight()/2);
+        int x = (tamanioPantalla.width - getWidth()) / 2;
+        int y = (tamanioPantalla.height - getHeight()) / 2;
         setLocation(x, y);
+
+        setVisible(true);
     }
+
 
     private void agregarLibro(){
         //LLeer los valores del formulario

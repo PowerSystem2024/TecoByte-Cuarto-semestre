@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="4d056" class="javax.swing.JLabel">
+      <component id="4d056" class="javax.swing.JLabel" binding="tiendaDeLibrosLabel">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="11" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -17,7 +17,7 @@
           <text value="Tienda de Libros"/>
         </properties>
       </component>
-      <scrollpane id="d2a3a">
+      <scrollpane id="d2a3a" binding="scrollPane1">
         <constraints>
           <grid row="2" column="6" row-span="1" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
