@@ -53,7 +53,7 @@ public class LibroFrom extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(900, 700);
 
-        // Inicializar el modelo de la tabla aquí y deshabilitar la edición de celdas
+        // Deshabilitar la edición de celdas
         this.tablaModeloLibros = new DefaultTableModel(0, 5) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -73,7 +73,7 @@ public class LibroFrom extends JFrame {
         listarLibros();
 
 
-        // Centrar ventana (corregido)
+        // Centrar ventana 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension tamanioPantalla = toolkit.getScreenSize();
         int x = (tamanioPantalla.width - getWidth()) / 2;
