@@ -25,10 +25,10 @@ function TareaFormPage() {
     let tarea;
     if (!params.id) {
       tarea = await crearTarea(data);
-      if (tarea) navigate("/tareas");
+      navigate("/tareas");
     } else {
       tarea = await editarTarea(params.id, data);
-      if (tarea) navigate("/tareas");    
+      navigate("/tareas");    
     }
   });
 
@@ -60,7 +60,7 @@ function TareaFormPage() {
             {...register("titulo", { required: true })}
           />
           {errors.titulo && (
-            <p className="text-red-500">El Titulo es requerido</p>
+            <p className="text-red-500">El tutulo es requerido</p>
           )}
           <Label htmlFor="descripcion">Descripcion</Label>
           <Textarea

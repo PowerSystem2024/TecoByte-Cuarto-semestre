@@ -1,5 +1,5 @@
 import { createContext, useState, useContext ,useEffect } from "react";
-import Cookies from "js-cookie";
+import Cookie from "js-cookie";
 import axios from "../api/axios";
 
 export const AuthContext = createContext();
@@ -58,7 +58,7 @@ export function AuthProvider({ children }) {
 
     useEffect(() => {
       setLoading(true);
-        if (Cookies.get("token")) {
+        if (Cookie.get("token")) {
             axios.get("/profile").then((res) => {
                 setUser(res.data);
                 setIsAuth(true);

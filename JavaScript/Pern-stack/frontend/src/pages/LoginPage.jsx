@@ -17,15 +17,15 @@ function LoginPege() {
   });
 
   return (
-    <div className="login-container">
-      <div className="login-card">
+    <Container className="h-[calc(100vh-10rem)] flex items-center justify-center">
+      <Card>
         {loginErrros &&
           loginErrros.map((error) => (
             <p className="bg-red-500 text-white p-2">{error}</p>
           ))}
-        <h1 className="login-title">Iniciar sesión</h1>
+        <h1 className="text-4xl font-bold my-2 text-center">Inciar sesión</h1>
 
-        <form onSubmit={onSubmit} className="login-form">
+        <form onSubmit={onSubmit}>
           <Label htmlFor="email">Email</Label>
           <Input
             type="email"
@@ -50,12 +50,12 @@ function LoginPege() {
           }
           <Button>Ingresar</Button>
         </form>
-        <div className="login-footer flex flex-col items-center gap-2 mt-6">
-          <p className="text-slate-600">¿No tienes cuenta?</p>
-          <Link to="/register" className="text-lg font-semibold" style={{color: 'var(--accent)'}}>Registrate</Link>
+        <div className=" flex justify-between my-4">
+          <p className="mr-4">¿No tienes cuenta?</p>
+          <Link to="/register">Registrate</Link>
         </div>
-      </div>
-    </div>
+      </Card>
+    </Container>
   );
 }
 

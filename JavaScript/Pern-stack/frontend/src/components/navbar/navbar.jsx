@@ -1,57 +1,62 @@
 import { Link, useLocation } from "react-router-dom";
-import { PublicRoutes, PrivateRoutes } from "./navigation.jsx";
-import Container from "../ui/Container";
+import { PrivateRoutes, PublicRoutes } from "./navigation";
+import { Container } from "../ui/Container";
+import { twMerge } from "tailwind-merge";
 import { useAuth } from "../../context/AuthContext";
+import { BiLogOut } from "react-icons/bi";
 
 function Navbar() {
   const location = useLocation();
-  const { signout, user } = useAuth();
-
-  // Detectar si estamos en una ruta privada
-  const privatePathPatterns = ['/tareas', '/perfil'];
-  const isPrivateRoute = privatePathPatterns.some(pattern =>
-    location.pathname.startsWith(pattern)
-  );
-
+  const { isAuth, signout, user } = useAuth();
   return (
-    <nav className="bg-zinc-950">
+    <nav className="bg-zinc-950 ">
       <Container className="flex justify-between items-center py-3">
-        <div className="flex items-center gap-4">
-          <span className="navbar-brand">PERN-STACK</span>
-          <Link to="/">
-            <h1 className="text-2xl font-bold text-white">Proyecto PERN</h1>
-          </Link>
-        </div>
-        <ul className="flex items-center gap-x-2">
-          {isPrivateRoute ? (
+        <Link to="/">
+          <h1 className="text-2xl font-bold text-white">Proyecto PERN</h1>
+        </Link>
+        <ul className="flex gap-x-1 items-center justify-center">
+          {isAuth ? (
             <>
-              {PrivateRoutes.map(({ name, path }) => (
+              {PrivateRoutes.map(({ name, path, icon }) => (
                 <li key={name}>
-                  <Link to={path} className="nav-link">{name}</Link>
+                  <Link
+                    to={path}
+                    className={twMerge(
+                      "text-slate-300 items-center flex px-3 py-1 gap-x-1",
+                      location.pathname === path && "bg-sky-500"
+                    )}
+                  >
+                    {icon}
+                    <span className="hidden sm:block">{name}</span>
+                  </Link>
                 </li>
               ))}
-
-              <li>
-                <button
-                  onClick={() => signout()}
-                  className="nav-link"
-                  style={{border: 'none', cursor: 'pointer'}}
-                >
-                  Salir
-                </button>
+              <li
+                className="text-slate-300 items-center flex px-3 py-1 hover:cursor-pointer"
+                onClick={() => signout()}
+              >
+                <BiLogOut className="h-5 w-5" />
+                <span className="hidden sm:block">Salir</span>
               </li>
-
-              {user && (
-                <li style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-                  <img src={user.gravatar} alt={user.name} className="w-8 h-8 rounded-full object-cover" style={{border: '2px solid #38bdf8'}} />
-                  <span className="font-medium" style={{color: '#38bdf8'}}>{user.name}</span>
-                </li>
-              )}
+              <li className="flex gap-x-2 items-center justify-center  ">
+                <img
+                  src={user.gravatar}
+                  alt=""
+                  className="h-8 w-8 rounded-full"
+                />
+                <span className="font-medium">{user.name}</span>
+              </li>
             </>
           ) : (
             PublicRoutes.map(({ name, path }) => (
-              <li key={name}>
-                <Link to={path} className="nav-link">{name}</Link>
+              <li
+                className={twMerge(
+                  "text-slate-300  items-center flex px-3 py-1",
+                  location.pathname === path && "bg-sky-500"
+                )}
+                key={name}
+              >
+                <Link to={path}>{name}</Link>
               </li>
             ))
           )}
