@@ -4,7 +4,7 @@ import { useTareas } from "../context/TareasContext";
 
 
 function TareasPage() {
-  const { tareas , cargarTareas } = useTareas();
+  const {tareas , cargarTareas} = useTareas();
 
   useEffect(() => {
     cargarTareas();

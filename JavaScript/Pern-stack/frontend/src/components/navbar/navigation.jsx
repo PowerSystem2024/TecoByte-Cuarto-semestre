@@ -1,5 +1,5 @@
-import { MdAddTask } from "react-icons/md"
-import { BiTask, BiUserCircle } from "react-icons/bi"
+import {MdAddTask} from "react-icons/md"
+import {BiTask, BiUserCircle} from "react-icons/bi"
 
 export const PublicRoutes = [  
 {
@@ -20,12 +20,14 @@ export const PublicRoutes = [
 }
 ];
 
+
+
 export const PrivateRoutes = [
   
   {
     name: "Tareas",
     path: "/tareas",
-    icon: <BiTask className="h-5 w-5"/>
+    icon: <BiTask className="h-5 w-5"/>,
   },
   {
     name: "Agregar",

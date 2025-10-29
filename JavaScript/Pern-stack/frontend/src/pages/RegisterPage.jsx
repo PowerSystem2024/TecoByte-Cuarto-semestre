@@ -8,7 +8,7 @@ function RegisterPage() {
   
   const { register, handleSubmit, formState: {errors} } = useForm();
 
-  const { signup, errors: setUserErrors } = useAuth();
+  const {signup, errors: setUserErrors } = useAuth();
   const navigate = useNavigate();
   const onSubmit = handleSubmit(async(data) => { 
     const user = await signup(data);
@@ -19,14 +19,14 @@ function RegisterPage() {
 
 
   return (
-    <div className="register-container">
-      <div className="register-card">
+    <Container className="h-[calc(100vh-10rem)] flex items-center justify-center">
+      <Card>
         {setUserErrors &&
           setUserErrors.map((error) => (
             <p className="bg-red-500 text-white p-2">{error}</p>
           ))}
-        <h3 className="register-title">Registro</h3>
-        <form onSubmit={onSubmit} className="register-form">
+        <h3 className="text-4xl font-bold my-2">Registro</h3>
+        <form onSubmit={onSubmit}>
           <Label htmlFor="name">Nombre</Label>
           <Input placeholder="Ingrese su nombre"
           {...register("name", {required:true})}></Input>
@@ -50,12 +50,12 @@ function RegisterPage() {
         }
           <Button>Registrarse</Button>
         </form>
-        <div className="flex flex-col items-center gap-2 mt-6">
-          <p className="text-slate-600">¿Ya tienes cuenta?</p>
-          <Link to="/login" className="text-lg font-semibold" style={{color: 'var(--accent)'}}>Iniciar Sesión</Link>
+        <div className=" flex justify-between my-4">
+          <p className="mr-4">¿Ya tienes cuenta?</p>
+          <Link to="/login">Inciar Sesión</Link>
         </div>
-      </div>
-    </div>
+      </Card>
+    </Container>
   );
 }
 
