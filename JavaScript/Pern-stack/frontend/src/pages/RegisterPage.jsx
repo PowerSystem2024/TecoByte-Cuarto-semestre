@@ -1,20 +1,60 @@
-import Input from "../components/ui/input";
-import Card from "../components/ui/card";
-import Button from "../components/ui/Button";
+import { Button, Card, Container, Input, Label } from "../components/ui";
+import  { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
 
 function RegisterPage() {
-  return (
-    <div className="h-[calc(100vh-64px)] flex items-center justify-center">
-      <Card>
-        <h3 className="text-2xl font-bold text-yellow-500">Registro</h3>
-        <form>
-          <Input placeholder="Ingrese su nombre"></Input>
-          <Input type="email" placeholder="Ingrese su email"></Input>
-          <Input type="password" placeholder="Ingrese su contraseña"></Input>
+  
+  const { register, handleSubmit, formState: {errors} } = useForm();
 
+  const { signup, errors: setUserErrors } = useAuth();
+  const navigate = useNavigate();
+  const onSubmit = handleSubmit(async(data) => { 
+    const user = await signup(data);
+    if(user){
+      navigate("/tareas");
+    }
+  });
+
+
+  return (
+    <div className="register-container">
+      <div className="register-card">
+        {setUserErrors &&
+          setUserErrors.map((error) => (
+            <p className="bg-red-500 text-white p-2">{error}</p>
+          ))}
+        <h3 className="register-title">Registro</h3>
+        <form onSubmit={onSubmit} className="register-form">
+          <Label htmlFor="name">Nombre</Label>
+          <Input placeholder="Ingrese su nombre"
+          {...register("name", {required:true})}></Input>
+
+        {
+          errors.name && <p className="text-red-500">Este campo es requerido</p>
+        }
+          <Label htmlFor="email">Email</Label>
+          <Input type="email" placeholder="Ingrese su email"
+          {...register("email", {required:true})}></Input>
+
+        {
+          errors.email && <p className="text-red-500">Este campo es requerido</p>
+        }
+          <Label htmlFor="password">Contraseña</Label>
+          <Input type="password" placeholder="Ingrese su contraseña"
+          {...register("password", {required:true})}></Input>
+
+        {
+          errors.password && <p className="text-red-500">Este campo es requerido</p>
+        }
           <Button>Registrarse</Button>
         </form>
-      </Card>
+        <div className="flex flex-col items-center gap-2 mt-6">
+          <p className="text-slate-600">¿Ya tienes cuenta?</p>
+          <Link to="/login" className="text-lg font-semibold" style={{color: 'var(--accent)'}}>Iniciar Sesión</Link>
+        </div>
+      </div>
     </div>
   );
 }
