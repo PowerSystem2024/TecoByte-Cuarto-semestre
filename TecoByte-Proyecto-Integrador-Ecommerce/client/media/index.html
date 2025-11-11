@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../media/style.css">
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <title>TecoByte</title> 
+</head>
+<body>
+    <div id="auth-container"></div>
+
+    <header class="main-banner">
+        <div class="banner-content">
+            <div class="banner-text-box">
+                <h2>BIENVENIDO</h2>
+                <h1>LAS MEJORES TEXTURAS Y SKIN PARA DISEÑAR TUS JUEGOS</h1>
+                <p>TENEMOS DESCUENTOS IMPERDIBLES!!</p>
+            </div>
+            <div class="banner-logo-box">
+                <img src="../media/Capturas/Logo2.png" alt="TecoByte Logo">
+            </div>
+        </div>
+    </header>
+
+    <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="skin">Skins</button>
+        <button class="filter-btn" data-filter="textura">Texturas</button>
+    </div>
+    <div class="cart-products-container">
+        <div class="cart-products" id="shopContent"></div>
+    </div>
+    
+    <div class="cart-btn" id="cart-btn">🛒</div>
+     <span class="cart-counter" id="cart-counter">0</span>
+     <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-container" id="modal-container"></div>
+
+    <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 mbt">
+                <a href="https://github.com/enriquezleandro" class="link">ENRIQUEZ LEANDRO</a> ·
+                <a href="https://github.com/lucianafragueiro" class="link">FAGUEIRO LUCIANA</a> ·
+                <a href="https://github.com/Flor-balladares" class="link">BATALLÓN COSTA JUAN PABLO</a> ·
+                <a href="https://github.com/eliasdjacob" class="link">JACOB ELÍAS DAVID</a> ·
+                <a href="https://github.com/Roberto-JLopez" class="link">LOPEZ ROBERTO JOSE</a> ·
+                <a href="https://github.com/agus-salinas" class="link">SALINAS AGUSTÍN</a> ·
+                <a href="https://github.com/maxidtomio" class="link">TOMIO MAXIMILIANO DAVID</a> .
+                <a href="https://github.com/MrEbriO" class="link">ORTIZ EDUARDO JAVIER</a>
+            </p>
+            <p class="m-0 mbt1 text-neon">Team TecoByte | Cohorte 2024 | UTN San Rafael</p>
+        </div>
+    </footer>
+
+    <script src="../js/products.js"></script>
+    <script src="../js/index.js"></script> <script src="../js/cart.js"></script>
+    <script src="../js/app.js"></script> 
+</body>
+</html>

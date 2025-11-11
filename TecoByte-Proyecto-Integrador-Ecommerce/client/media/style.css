@@ -1,0 +1,685 @@
+/* --- FUNDACIÓN: Importación de Fuente y Variables --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --tipografia: 'Roboto', sans-serif;
+
+    /* Paleta de colores "Tech Neon" */
+    --color-charcoal-gray: #000100;
+    --color-dark-slate-50: #4F5861;
+    --color-white: #FFFFFF;
+    --color-ui-text: #EAEAEA;
+    --color-electric-blue: #11A1FA;
+    --color-tech-cian: #0022DB;
+    --color-sunset-orange: #fc6e22; /* Acento */
+
+    /* Mapeo de variables */
+    --colorPrimario: var(--color-electric-blue);
+    --colorPrimario-rgb: 17, 161, 250;
+    --colorSecundario: var(--color-charcoal-gray);
+    --colorAcento: var(--color-sunset-orange);
+    --colorTexto: var(--color-ui-text);
+}
+
+/* --- ESTILOS GLOBALES Y DE BODY --- */
+body {
+    background: linear-gradient(180deg, var(--color-charcoal-gray) 60%, var(--color-dark-slate-50) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    color: var(--colorTexto);
+    font-family: var(--tipografia);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* --- ESTILOS DE PRODUCTOS (index.html) --- */
+.cart-products-container {
+    margin: 5vh auto;
+    padding: 0 20px;
+}
+
+.cart-products {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centramos las tarjetas */
+    flex-wrap: wrap;
+    gap: 30px; /* Espacio entre tarjetas */
+}
+
+
+/* --- ESTILOS DEL FOOTER --- */
+.footer {
+    background-color: var(--colorSecundario);
+    /* Borde superior neón para separarlo */
+    border-top: 1px solid var(--colorPrimario);
+    box-shadow: 0 -5px 15px -5px rgba(var(--colorPrimario-rgb), 0.4);
+    padding: 30px 15px;
+    margin-top: 60px; /* Espacio para separarlo del contenido */
+    width: 100%;
+    text-align: center;
+}
+
+.footer p {
+    margin: 10px 0;
+    line-height: 1.6; /* Mejora la legibilidad */
+    color: var(--colorTexto);
+}
+
+.footer .link {
+    color: var(--colorTexto);
+    text-decoration: none;
+    font-weight: 700;
+    margin: 0 3px;
+    font-size: 0.9rem;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.footer .link:hover {
+    color: var(--colorAcento);
+    text-shadow: 0 0 5px var(--colorAcento);
+}
+
+
+/* --- ESTILOS DEL BANNER PRINCIPAL --- */
+.main-banner {
+    width: 100%;
+    padding: 50px 5%; /* 5% de espacio a los lados */
+    background-color: var(--colorSecundario); /* Fondo oscuro */
+    /* Damos espacio para el auth-container flotante */
+    margin-top: 80px; 
+    margin-bottom: 30px; /* Espacio antes de los productos */
+}
+
+.banner-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap; /* Para que se apilen en pantallas pequeñas */
+    gap: 40px; /* Espacio entre el texto y el logo */
+    max-width: 1300px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centra el contenido */
+}
+
+.banner-text-box {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 320px; /* Ancho mínimo */
+    max-width: 600px;
+    padding: 30px;
+    border: 2px solid var(--colorPrimario);
+    border-radius: 8px;
+    box-shadow: 0 0 15px var(--colorPrimario), inset 0 0 10px rgba(var(--colorPrimario-rgb), 0.5);
+    text-align: left;
+    color: var(--colorTexto);
+}
+
+.banner-text-box h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+
+.banner-text-box h1 {
+    font-size: 2.2rem; /* Tamaño grande para el título */
+    color: var(--colorPrimario);
+    font-weight: bold;
+    text-shadow: 0 0 8px var(--colorPrimario);
+    margin: 0 0 20px 0;
+    line-height: 1.3;
+}
+
+.banner-text-box p {
+    font-size: 1.1rem;
+    color: var(--colorAcento); /* Color naranja de acento */
+    font-weight: bold;
+    margin: 0;
+}
+
+.banner-logo-box {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 320px; /* Ancho mínimo */
+    max-width: 500px;
+    display: grid;
+    place-items: center;
+}
+
+.banner-logo-box img {
+    max-width: 100%;
+    height: auto;
+    
+    /* filter: drop-shadow(0 0 10px var(--colorPrimario)); */
+}
+
+/* Estilo para "Team TecoByte..." */
+.footer .text-neon {
+    color: var(--colorPrimario);
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-shadow: 0 0 5px var(--colorPrimario);
+    letter-spacing: 1px;
+}
+
+/* Tarjeta de producto individual (el 'content' div de index.js) */
+.cart-products > div {
+    width: 280px;
+    background-color: var(--colorSecundario);
+    border: 1px solid var(--colorPrimario);
+    box-shadow: 0 0 15px var(--colorPrimario);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cart-products > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px var(--colorPrimario);
+}
+
+.cart-products img {
+    margin-top: 0;
+    width: 100%;
+    height: 200px;
+    object-fit: contain; /* 'contain' es mejor para mostrar productos enteros */
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+/* Estilos para h3 y p generados por index.js */
+.cart-products h3 {
+    color: var(--colorTexto);
+    font-size: 1.25rem;
+    margin: 0 0 5px 0;
+    font-weight: 700;
+    flex-grow: 1; /* Empuja el precio y botón hacia abajo */
+}
+
+.cart-products .price {
+    color: var(--colorAcento);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0 15px 0;
+}
+
+/* Botón "Comprar" en la tarjeta de producto */
+.cart-products button {
+    background-color: var(--colorPrimario);
+    color: var(--colorSecundario);
+    padding: 10px 0;
+    transition: 0.2s ease-in-out;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: var(--tipografia);
+    border: none;
+    outline: 0;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cart-products button:hover {
+    box-shadow: 0 0 2px var(--colorPrimario), 0 0 6px var(--colorPrimario), 0 0 10px var(--colorPrimario);
+    color: var(--colorTexto);
+    opacity: 1;
+}
+
+/* --- BOTÓN FLOTANTE DEL CARRITO (CORREGIDO v2) --- */
+.cart-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    
+    /* --- Simplificado: Quitar padding, usar height/width fijos --- */
+    width: 52px;  /* Tamaño total del círculo */
+    height: 52px; /* Tamaño total del círculo */
+    padding: 0;   /* Quitar padding para no confundir */
+    
+    background-color: var(--colorPrimario);
+    color: var(--colorSecundario);
+    border-radius: 50%;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    transform: scale(1);
+    z-index: 1000;
+    
+    /* --- Centrado (la parte importante) --- */
+    display: grid;
+    place-items: center;
+    font-size: 24px;  /* Aumentar un poco el tamaño del emoji */
+    line-height: 1;   /* Asegurar que la línea no añada espacio extra */
+
+    box-shadow: 0 0 10px var(--colorPrimario), 0 0 15px var(--colorPrimario);
+    cursor: pointer;
+}
+
+.cart-btn:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px var(--colorAcento), 0 0 25px var(--colorAcento);
+    background-color: var(--colorAcento);
+}
+
+
+/* --- ESTILOS DE FILTRO --- */
+.filter-container {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: -10px; /* Lo sube un poco */
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap; /* Para pantallas pequeñas */
+}
+
+.filter-btn {
+    background-color: var(--colorSecundario);
+    border: 1px solid var(--colorPrimario);
+    color: var(--colorTexto);
+    padding: 10px 20px;
+    font-family: var(--tipografia);
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--colorPrimario);
+    color: var(--colorSecundario);
+    box-shadow: 0 0 10px var(--colorPrimario);
+}
+
+/* Estilo para el botón que está seleccionado */
+.filter-btn.active {
+    background-color: var(--colorPrimario);
+    color: var(--colorSecundario);
+    box-shadow: 0 0 10px var(--colorPrimario);
+}
+
+/* --- CSS del Contador (Ajustado a la nueva posición) --- */
+.cart-counter {
+    display: none;
+    position: fixed;
+    
+    /* Nuevas coordenadas basadas en el botón de 52px */
+    bottom: 68px; /* (30px del botón + 52px de alto) - 14px (mitad de su propia altura) */
+    right: 16px;  /* 30px del botón - 14px (mitad de su propio ancho) */
+    
+    color: var(--colorSecundario);
+    text-align: center;
+    background-color: var(--colorAcento);
+    padding: 4px;
+    border-radius: 50%;
+    height: 20px; /* 28px total con padding */
+    width: 20px;  /* 28px total con padding */
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 2000; 
+    border: 1px solid var(--colorSecundario);
+}
+
+/* --- ESTILOS DEL MODAL DEL CARRITO --- */
+.modal-overlay {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9998;
+}
+
+.modal-container {
+    display: none;
+    background: linear-gradient(180deg, var(--color-charcoal-gray) 60%, var(--color-dark-slate-50) 100%);
+    border: 1px solid var(--colorPrimario);
+    box-shadow: 0 0 25px var(--colorPrimario);
+    padding: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 900px;
+    z-index: 9999;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    color: var(--colorTexto);
+}
+
+/* Scrollbar Neón */
+.modal-container::-webkit-scrollbar {
+    width: 8px;
+}
+.modal-container::-webkit-scrollbar-track {
+    background: var(--colorSecundario);
+}
+.modal-container::-webkit-scrollbar-thumb {
+    background-color: var(--colorPrimario);
+    border-radius: 10px;
+    border: 2px solid var(--colorSecundario);
+}
+
+.modal-close {
+    float: right;
+    font-size: 1.5rem;
+    color: var(--colorTexto);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.modal-close:hover {
+    cursor: pointer;
+    color: var(--colorAcento);
+    transform: scale(1.2);
+}
+
+.modal-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+    color: var(--colorPrimario);
+    text-shadow: 0 0 8px var(--colorPrimario), 0 0 12px var(--colorPrimario);
+}
+
+.modal-body {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--colorTexto);
+}
+
+/* Producto individual dentro del modal */
+.product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(var(--colorPrimario-rgb), 0.3);
+    gap: 15px;
+}
+
+.product-img {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+}
+
+.product-info {
+    flex: 1;
+    text-align: left;
+}
+
+.product-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--colorTexto);
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    cursor: default;
+}
+
+.quantity-btn-decrease, /* Corregido nombre de clase */
+.quantity-btn-increase {
+    color: var(--colorPrimario);
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+    transition: color 0.2s ease;
+}
+.quantity-btn-decrease:hover,
+.quantity-btn-increase:hover {
+    color: var(--colorAcento);
+}
+
+.quantity-input {
+    color: var(--colorTexto);
+    font-size: 1rem;
+    padding: 5px 8px;
+    text-align: center;
+    width: 45px;
+    font-weight: bold;
+    background-color: var(--colorSecundario);
+    border: 1px solid var(--colorPrimario);
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+    color: var(--colorTexto);
+    width: 80px;
+    text-align: right;
+}
+
+.delete-product {
+    margin: 0;
+    margin-left: 1em;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #cc2a2a;
+    transition: transform 0.2s ease;
+}
+.delete-product:hover {
+    transform: scale(1.2);
+}
+
+.modal-footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.total-price {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: var(--colorAcento);
+}
+
+/* Botón "Ir a pago" */
+.btn-primary {
+    background-color: var(--colorAcento);
+    border: none;
+    color: var(--colorSecundario);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    border-radius: 8px;
+    font-family: var(--tipografia);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 2px var(--colorAcento), 0 0 6px var(--colorAcento), 0 0 10px var(--colorAcento);
+    color: var(--colorTexto);
+}
+
+#button-checkout {
+    z-index: 10;
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 700px) {
+    .product {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .product-img {
+        display: none;
+    }
+    .product-info, .price {
+        text-align: center;
+        width: 100%;
+    }
+    .price {
+        margin-top: 10px;
+    }
+}
+
+/* --- ESTILOS DE AUTENTICACIÓN (Login/Register) --- */
+
+/* Contenedor flotante de Auth (index.html) */
+#auth-container {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    background-color: rgba(var(--colorSecundario-rgb), 0.8);
+    border: 1px solid var(--colorPrimario);
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--colorPrimario);
+    z-index: 1001;
+    font-family: var(--tipografia);
+    font-size: 14px;
+    backdrop-filter: blur(5px);
+}
+
+#auth-container a,
+#auth-container button {
+    text-decoration: none;
+    color: var(--colorPrimario);
+    font-weight: bold;
+    margin: 0 5px;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+#auth-container a:hover {
+    color: var(--colorAcento);
+    text-shadow: 0 0 5px var(--colorAcento);
+}
+
+#auth-container button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+    color: #d90000;
+}
+
+#auth-container button:hover {
+    color: var(--colorAcento);
+    text-shadow: 0 0 5px var(--colorAcento);
+}
+
+#auth-container span {
+    margin-right: 10px;
+    color: var(--colorTexto);
+}
+
+/* Formulario de Login y Registro (login.html, register.html) */
+.auth-form {
+    background-color: var(--colorSecundario);
+    border: 1px solid var(--colorPrimario);
+    box-shadow: 0 0 15px var(--colorPrimario);
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    /* Centrado por el 'place-items: center' del body */
+}
+
+.auth-form h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: var(--colorPrimario);
+    text-shadow: 0 0 8px var(--colorPrimario);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--colorTexto);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a1a1a;
+    border: 1px solid var(--colorPrimario);
+    border-radius: 4px;
+    color: var(--colorTexto);
+    font-size: 1rem;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--colorAcento);
+    box-shadow: 0 0 8px var(--colorAcento);
+}
+
+.auth-form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--colorPrimario);
+    color: var(--colorSecundario);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: var(--tipografia);
+    transition: 0.2s ease-in-out;
+}
+
+.auth-form button[type="submit"]:hover {
+    box-shadow: 0 0 2px var(--colorPrimario), 0 0 6px var(--colorPrimario), 0 0 10px var(--colorPrimario);
+    color: var(--colorTexto);
+}
+
+#message {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.auth-form p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auth-form p a {
+    color: var(--colorAcento);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-form p a:hover {
+    text-decoration: underline;
+}
+
+/* ESTILO PARA CENTRAR PÁGINAS DE FORMULARIO */
+body.body-center-form {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}

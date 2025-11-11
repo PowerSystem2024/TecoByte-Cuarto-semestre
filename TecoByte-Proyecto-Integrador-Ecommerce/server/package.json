@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "mercadopago": "^2.8.0",
+    "mongoose": "^8.19.3",
+    "nodemon": "^3.1.10"
+  }
+}

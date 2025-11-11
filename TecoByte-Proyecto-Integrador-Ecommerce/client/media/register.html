@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - Mi Ecommerce</title>
+  <link rel="stylesheet" href="style.css">
+  </head>
+<body class="body-center-form"> <form id="register-form" class="auth-form">
+    <h2>Crear Cuenta</h2>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Contraseña:</label>
+      <input 
+        type="password" 
+        id="password" 
+        name="password" 
+        required 
+        minlength="8"  maxlength="32" >
+      <p style="font-size: 0.8rem; color: #aaa; margin-top: 5px; margin-bottom: 0;">
+        Debe tener entre 8 y 32 caracteres.
+      </p>
+    </div>
+
+    <button type="submit">Registrarse</button>
+    <p id="message"></p>
+    
+    <p>¿Ya tienes cuenta? <a href="/media/login.html">Inicia Sesión</a></p>
+    <p style="margin-top: 15px;"><a href="/">Volver a Productos</a></p>
+  </form>
+
+  <script src="../js/auth.js"></script>
+</body>
+ <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 mbt">
+                <a href="https://github.com/enriquezleandro" class="link">ENRIQUEZ LEANDRO</a> ·
+                <a href="https://github.com/lucianafragueiro" class="link">FAGUEIRO LUCIANA</a> ·
+                <a href="https://github.com/Flor-balladares" class="link">BATALLÓN COSTA JUAN PABLO</a> ·
+                <a href="https://github.com/eliasdjacob" class="link">JACOB ELÍAS DAVID</a> ·
+                <a href="https://github.com/Roberto-JLopez" class="link">LOPEZ ROBERTO JOSE</a> ·
+                <a href="https://github.com/agus-salinas" class="link">SALINAS AGUSTÍN</a> ·
+                <a href="https://github.com/maxidtomio" class="link">TOMIO MAXIMILIANO DAVID</a> .
+                <a href="https://github.com/MrEbriO" class="link">ORTIZ EDUARDO JAVIER</a>
+            </p>
+            <p class="m-0 mbt1 text-neon">Team TecoByte | Cohorte 2024 | UTN San Rafael</p>
+        </div>
+    </footer>

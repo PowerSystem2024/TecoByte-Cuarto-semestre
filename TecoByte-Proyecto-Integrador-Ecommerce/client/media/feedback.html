@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado del Pago - Mi Ecommerce</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para centrar el mensaje */
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .feedback-container {
+            background-color: var(--colorSecundario);
+            border: 1px solid var(--colorPrimario);
+            box-shadow: 0 0 15px var(--colorPrimario);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 600px;
+        }
+        .feedback-container h1 {
+            color: var(--colorAcento);
+            margin-bottom: 20px;
+        }
+        .feedback-container p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .feedback-container a {
+            background-color: var(--colorPrimario);
+            color: var(--colorSecundario);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: var(--tipografia);
+            transition: 0.2s ease-in-out;
+        }
+        .feedback-container a:hover {
+            box-shadow: 0 0 2px var(--colorPrimario), 0 0 6px var(--colorPrimario), 0 0 10px var(--colorPrimario);
+            color: var(--colorTexto);
+        }
+    </style>
+</head>
+<body>
+    <div class="feedback-container">
+        <h1 id="feedback-title">¡Gracias por tu compra!</h1>
+        <p id="feedback-message">Tu pago ha sido procesado con éxito.</p>
+        <p>Recibirás un email con los detalles de tu pedido.</p>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const params = new URLSearchParams(window.location.search);
+                const status = params.get("status");
+                
+                const title = document.getElementById("feedback-title");
+                const message = document.getElementById("feedback-message");
+
+                if (status === "approved") {
+                    title.innerText = "¡Pago Aprobado!";
+                    message.innerText = "Tu pago ha sido procesado con éxito.";
+                } else if (status === "pending") {
+                    title.innerText = "Pago Pendiente";
+                    message.innerText = "Tu pago está pendiente de aprobación. Te avisaremos por email.";
+                } else if (status === "rejected") {
+                    title.innerText = "Pago Rechazado";
+                    message.innerText = "Hubo un problema al procesar tu pago. Por favor, intenta de nuevo.";
+                    title.style.color = "#d90000";
+                }
+            });
+        </script>
+
+        <a href="/">Volver a la Tienda</a>
+    </div>
+</body>
+</html>
